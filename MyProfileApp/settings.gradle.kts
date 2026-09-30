@@ -1,4 +1,4 @@
-rootProject.name = "NewsFeedSimulator"
+rootProject.name = "MyProfileApp"
 
 pluginManagement {
     repositories {
