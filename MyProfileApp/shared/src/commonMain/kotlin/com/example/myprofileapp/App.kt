@@ -29,9 +29,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.painterResource
 import myprofileapp.shared.generated.resources.Res
-import myprofileapp.shared.generated.resources.compose_multiplatform
 import androidx.compose.ui.tooling.preview.Preview
-import myprofileapp.shared.generated.resources.FotoRefah
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.ui.graphics.Color
@@ -48,58 +46,66 @@ fun App() {
 
         Column(
             modifier = Modifier
-                .background(MaterialTheme.colorScheme.primaryContainer)
+                .background(Color(15, 23, 42))
                 .fillMaxSize()
-                .padding(20.dp),
+                .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
             ProfileCard {
                 ProfileHeader()
+
                 Spacer(
-                    modifier = Modifier.size(16.dp)
+                    modifier = Modifier.size(18.dp)
                 )
+
                 Text(
                     text = "Mahasiswa Teknik Informatika",
-                    style = MaterialTheme.typography.bodyLarge
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = Color(226, 232, 240)
                 )
+
                 Text(
                     text = "Institut Teknologi Sumatera",
-                    style = MaterialTheme.typography.bodyMedium
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = Color(148, 163, 184)
                 )
+
                 Spacer(
-                    modifier = Modifier.size(20.dp)
+                    modifier = Modifier.size(24.dp)
                 )
+
                 InfoItem(
                     label = "Email",
                     value = "mrifat.124140138@student.itera.ac.id"
                 )
+
                 InfoItem(
                     label = "Phone",
-                    value = "+62 896-905-44925"
+                    value = "+62 8969-0544-925"
                 )
+
                 InfoItem(
                     label = "Location",
                     value = "Lampung, Indonesia"
                 )
+
                 Spacer(
-                    modifier = Modifier.size(16.dp)
+                    modifier = Modifier.size(18.dp)
                 )
+
                 Button(
                     onClick = {
                         showMessage = !showMessage
                     },
+                    shape = RoundedCornerShape(12.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = if (showMessage) {
-                            Color.White
+                            Color(51, 65, 85)
                         } else {
-                            MaterialTheme.colorScheme.primary
+                            Color(59, 130, 246)
                         },
-                        contentColor = if (showMessage) {
-                            Color.Black
-                        } else {
-                            Color.White
-                        }
+                        contentColor = Color.White
                     )
                 ) {
                     Text(
@@ -107,19 +113,24 @@ fun App() {
                             "Following"
                         } else {
                             "Follow +"
-                        }
+                        },
+                        style = MaterialTheme.typography.labelLarge
                     )
                 }
+
                 if (showMessage) {
                     Text(
                         text = "Follow successful.",
-                        modifier = Modifier.padding(top = 8.dp)
+                        modifier = Modifier.padding(top = 10.dp),
+                        color = Color(74, 222, 128),
+                        style = MaterialTheme.typography.bodyMedium
                     )
                 }
             }
         }
     }
 }
+
 @Composable
 fun ProfileHeader() {
     Box(
@@ -137,24 +148,30 @@ fun ProfileHeader() {
                 ),
                 contentDescription = "Foto Profil",
                 modifier = Modifier
-                    .size(120.dp)
+                    .size(135.dp)
                     .clip(CircleShape),
                 contentScale = ContentScale.Crop
             )
+
             Spacer(
-                modifier = Modifier.height(12.dp)
+                modifier = Modifier.height(14.dp)
             )
+
             Text(
                 text = "M. Rif'at Syauki",
-                style = MaterialTheme.typography.headlineSmall
+                style = MaterialTheme.typography.headlineSmall,
+                color = Color.White
             )
+
             Text(
                 text = "Informatics Engineering",
-                style = MaterialTheme.typography.bodyMedium
+                style = MaterialTheme.typography.bodyMedium,
+                color = Color(148, 163, 184)
             )
         }
     }
 }
+
 @Composable
 fun InfoItem(
     label: String,
@@ -163,31 +180,37 @@ fun InfoItem(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 6.dp),
+            .padding(vertical = 7.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Column {
             Text(
                 text = label,
-                style = MaterialTheme.typography.labelMedium
+                style = MaterialTheme.typography.labelMedium,
+                color = Color(96, 165, 250)
             )
+
             Text(
                 text = value,
-                style = MaterialTheme.typography.bodyLarge
+                style = MaterialTheme.typography.bodyLarge,
+                color = Color(226, 232, 240)
             )
         }
     }
 }
+
 @Composable
 fun ProfileCard(
     content: @Composable () -> Unit
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp)
+        shape = RoundedCornerShape(22.dp)
     ) {
         Column(
-            modifier = Modifier.padding(20.dp),
+            modifier = Modifier
+                .background(Color(30, 41, 59))
+                .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             content()
